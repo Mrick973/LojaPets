@@ -1,2 +1,32 @@
-<h1>Lojas#index</h1>
-<p>Find me in app/views/lojas/index.html.erb</p>
+<div class="container">
+
+  <h1 class="text-center">Lojas</h1>
+
+    <% @lojas.each do |loja|%>
+      <div class="blog-card">
+        <div class="meta">
+          <div class="photo"></div>
+          <ul class="details">
+            <li class="author"><h1 href="#"><%= loja.name %></h1></li>
+            <li class="date">Aug. 24, 2015</li>
+          </ul>
+        </div>
+        <div class="description">
+          <h1>Your Shop Pets</h1>
+          <h2><%= loja.address %></h2>
+          <p> <%= loja.description %></p>
+          <p class="read-more">
+            <%= link_to 'Tenho Interese', loja_path(loja) %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+
+   <div
+  id="map"
+  style="width: 100%;
+  height: 500px;"
+  data-markers="<%= @markers.to_json %>">
+  </div>
+
+</div>
